@@ -1,0 +1,18 @@
+Task from Veridion (https://veridion.com/)
+Pentru inceput, inainte de a incepe sa lucrez la acest task folosisem foarte putin cu Python si pe parcurs m-am intalnit cu o multe dificultati 
+din care am invatat ceva. Pentru prima data am lucrat cu biblioteca BeautifulSoup, KMeans, cum sa faci ca sa alegi cel mai bun K pentru clustering, folosind
+"silhouette distance". Documentatia pentru BeautifulSoup (https://www.crummy.com/software/BeautifulSoup/bs4/doc/) a fost de mare ajutor.
+
+Am folosit biblioteca BeautifulSoup pentru a transforma fisierul html intr-un arbore DOM si a face diferite operatii pe el.
+
+Pentru o prima solutie pentru fiecare doi arbori am calculat "tree edit distance"(foarte asemanator cu string edit distance, cu programare dinamica) 
+cu ajutorul algoriitmului Zhang-Shasha si sa folosesc matricea de distante pentru clustering. Insa, chiar si pentru primul folder tier1, programul mergea 
+destul de lent si ii lua in jur sa cateva ore sa ruleze.
+
+Pentru a doua solutie pentru fiecare fisier html am creat un vector de proprietati(features) precum, numarul de taguri, numarul de cuvinte, numarul de clase
+distince, raportul dintre numarul de taguri si numarul de cuvinte, numarul de imagine, adancimea maxima a arborelui etc. Si folosind matricea de proprietati
+am aplicat KMeans.
+
+Totusi consider ca problema nu este pana la urma rezolvata (ex: In cazul in care exista un element care acopera in totalitate viewportul, iar alte elemente
+pur si simplu nu mai sunt vizibile, caz in care, compararea efectiva a continutului fisierelor html nu ar mai fi atat de utila). In aceasta situatie putem 
+recurge la o alta solutie, comparand efectiv, folosind opencv si selenium de exemplu, screenshoturi ale oricaror doua fisiere.
